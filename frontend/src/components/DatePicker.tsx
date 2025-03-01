@@ -47,4 +47,3 @@ export function DatePicker({ id, onSelect }: { id: string; onSelect: (date: Date
       </Popover>
     );
   }
-  
