@@ -1,4 +1,5 @@
 import { BestPractices } from "@/components/BestPractices";
+import ChatInterface from "@/components/ChatInterface";
 import CropForm from "@/components/CropForm";
 import { FertilizerRecommdation } from "@/components/FertilizerRecommdations";
 import { RecommendedCrops } from "@/components/RecommendedCrops";
@@ -35,21 +36,18 @@ export default function Dashboard() {
     <div className="flex min-h-screen flex-col bg-background items-center">
       <div className="container flex-1 gap-12 p-4 md:p-6 2xl:p-8">
         <div className="flex-1 space-y-4">
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <div className="col-span-full lg:col-span-3 space-y-4">
-                    <CropForm city={city} />
-                    <FertilizerRecommdation />
-                </div>
-                <div className="col-span-full lg:col-span-4 space-y-4">
-                    <Weather city={city} />
-                    <RecommendedCrops />
-                    <BestPractices />
-                </div>
-                <div className="col-span-full lg:col-span-3">
-                </div>
-                <div className="col-span-full lg:col-span-4 space-y-4">
-                </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <div className="w-[91vw] md:w-auto col-span-full lg:col-span-3 space-y-4">
+                <CropForm city={city} />
+                <FertilizerRecommdation />
             </div>
+            <div className="w-[91vw] md:w-auto col-span-full lg:col-span-4 space-y-4">
+                <Weather city={city} />
+                <RecommendedCrops />
+                <BestPractices />
+                <ChatInterface />
+            </div>
+          </div>
         </div>
       </div>
     </div>
