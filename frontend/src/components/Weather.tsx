@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react"
 import { useState , useEffect } from "react"
 import axios from "axios"
 import { Cloud, CloudRain, Sun , CloudLightning ,CloudSnow } from "lucide-react"
+import { data } from "react-router-dom"
 
 
 interface WeatherData {
@@ -53,11 +54,12 @@ export function Weather({city}: {city: string}) {
       <CardContent>
         <div className="mb-6">
           <div className="flex justify-around">
-            {weatherData.map((day, i) => (
+            {weatherData.map((data, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="text-sm font-medium">{new Date(day.date).toUTCString().slice(0,3)}</div>
-                {getWeatherIcon(day.weather)}
-                <div className="text-sm font-bold">{Math.round(day.temp)}°</div>
+                <div className="text-sm font-medium">{new Date(data.date).toUTCString().slice(0,3)}</div>
+                {getWeatherIcon(data.weather)}
+                <div className="text-xs mb-1 text-muted-foreground">{data.weather}</div>
+                <div className="text-sm font-bold">{Math.round(data.temp)}°</div>
               </div>
             ))}
           </div>

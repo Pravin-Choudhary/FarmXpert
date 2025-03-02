@@ -1,9 +1,7 @@
-import { Router  } from "express";
+import { Request, Router  } from "express";
 import axios from "axios";
 
 const WeatherRouter = Router();
-
-
 
 WeatherRouter.get("/forecast/:city", async (req , res) => {
  
@@ -11,9 +9,7 @@ WeatherRouter.get("/forecast/:city", async (req , res) => {
   console.log(city);
   
   try {
-     const response = await axios.get(`
-      https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=4bab098e1ac811aed6c44bb3c7aeb953&units=metric`
-      );
+     const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=4bab098e1ac811aed6c44bb3c7aeb953&units=metric`);
 
       const forecasts = response.data.list;
       if (forecasts.length === 0) {
@@ -63,12 +59,13 @@ WeatherRouter.get("/forecast/:city", async (req , res) => {
       weather,
   });
 
+
   } catch (error) {
-        console.log('Error in fetching Data :' , error);
-        res.status(500).json({error : 'Error in fetching Data :'});
+    console.log('Error in fetching Data :' , error);
+    res.status(500).json({error : 'Error in fetching Data :'});
   }
     
-  });
+});
 
 
 
