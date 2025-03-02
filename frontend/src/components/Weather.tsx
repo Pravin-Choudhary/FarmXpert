@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { dayData } from "@/lib/data"
+import { weatherData } from "@/lib/data"
 import { MapPin } from "lucide-react"
 
 export function Weather({city}: {city: string}) {
@@ -12,11 +12,12 @@ export function Weather({city}: {city: string}) {
       <CardContent>
         <div className="mb-6">
           <div className="flex justify-between">
-            {dayData.map((hour, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="text-sm font-medium">{hour.day}</div>
-                <hour.icon className="my-2 h-6 w-6 text-primary" />
-                <div className="text-sm font-bold">{hour.temp}°</div>
+            {weatherData.map((weather, i) => (
+              <div key={i} className="flex flex-col items-center justify-center">
+                <div className="text-sm font-medium">{weather.day}</div>
+                <weather.icon className="my-2 h-6 w-6 text-primary" />
+                <div className="text-xs mb-1 text-muted-foreground">{weather.main}</div>
+                <div className="text-sm font-bold">{weather.temp}°</div>
               </div>
             ))}
           </div>

@@ -20,9 +20,20 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
 import { useState } from "react"
 import { Eraser, SendHorizonal } from "lucide-react"
 import { DatePicker } from "./DatePicker";
+import axios from "axios"
+
+interface CropDetails {
+    name: string;
+    location: string;
+    size: string;
+    soilType: string;
+    irrigationMethod: string;
+    plantingDate: Date;
+    usingFertilizer: string;
+}
 
 export default function CropForm({city}: {city: string}) {
-    const [cropDetails, setCropDetails] = useState({
+    const [cropDetails, setCropDetails] = useState<CropDetails>({
         name: "",
         location: city ?? "",
         size: "",
@@ -45,6 +56,14 @@ export default function CropForm({city}: {city: string}) {
         "Arid Soil (रेगिस्तानी मिट्टी)",
         "Grey Soil (धूसर मिट्टी)"
     ];
+
+    const handleCropSubmit = async (cropDetails: CropDetails) => {
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/ai/crop`, cropDetails).then(res => {
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      });
+    }
       
 
   return (
@@ -122,7 +141,7 @@ export default function CropForm({city}: {city: string}) {
                 usingFertilizer: "yes"
             })
         }}>Reset<Eraser /></Button>
-        <Button>Send <SendHorizonal /></Button>
+        <Button disabled={cropDetails.name == "" || cropDetails.location == "" || cropDetails.size == "" || cropDetails.soilType == "" || cropDetails.irrigationMethod == ""} onClick={() => handleCropSubmit(cropDetails)}>Submit<SendHorizonal /></Button>
       </CardFooter>
     </Card>
   )

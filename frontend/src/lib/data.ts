@@ -34,14 +34,14 @@ export const bestPracticesData = {
     ]
   }
   
-export const dayData = [
-  { day: "Sun", temp: 27, icon: Sun },
-  { day: "Mon", temp: 28, icon: Sun },
-  { day: "Tue", temp: 28, icon: Cloud },
-  { day: "Wed", temp: 29, icon: Cloud },
-  { day: "Thu", temp: 30, icon: Sun },
-  { day: "Fri", temp: 29, icon: CloudRain },
-  { day: "Sat", temp: 29, icon: CloudRain },
+export const weatherData = [
+  { day: "Sun", temp: 27, icon: Sun, main: "Sunny" },
+  { day: "Mon", temp: 28, icon: Sun, main: "Sunny" },
+  { day: "Tue", temp: 28, icon: Cloud, main: "Cloudy" },
+  { day: "Wed", temp: 29, icon: Cloud, main: "Cloudy" },
+  { day: "Thu", temp: 30, icon: Sun, main: "Sunny" },
+  { day: "Fri", temp: 29, icon: CloudRain, main: "Rainy" },
+  { day: "Sat", temp: 29, icon: CloudRain, main: "Rainy" },
 ];
   
 export const FertilizerData = [
