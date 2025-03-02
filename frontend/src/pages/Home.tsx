@@ -38,9 +38,9 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-8 max-w-7xl">
             <div className="relative rounded-2xl overflow-hidden shadow-xl bg-white">
               <div className="flex mt-4 space-x-2">
-                <div className="ml-5 w-4 h-4 rounded-full bg-red-500"></div>
-                <div className="w-4 h-4 rounded-full bg-orange-400"></div>
-                <div className="w-4 h-4 rounded-full bg-green-500"></div>
+                <div className="ml-5 w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full bg-red-500"></div>
+                <div className="w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full bg-orange-400"></div>
+                <div className="w-2 h-2 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full bg-green-500"></div>
               </div>
               <div className="relative pt-4 z-10 bg-white rounded-xl shadow-lg overflow-hidden">
                 <img src="/image.png" alt="image" className="w-full h-full object-cover" />

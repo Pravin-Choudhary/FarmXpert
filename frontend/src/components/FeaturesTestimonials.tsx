@@ -1,3 +1,5 @@
+import { UserRound } from "lucide-react";
+
 export default function FeaturesAndTestimonials() {
     return (
       <>
@@ -103,7 +105,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 1 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-green-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-green-100 mr-4 flex items-center justify-center">
+                        <UserRound className="h-8 w-8 text-green-400" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Sangram Patil</h4>
                         <p className="text-sm text-gray-600">Wheat Farmer, Kolhapur</p>
@@ -124,7 +128,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 2 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-blue-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-blue-100 mr-4 flex items-center justify-center">
+                        <UserRound className="h-8 w-8 text-blue-400" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Rahul Kale</h4>
                         <p className="text-sm text-gray-600">Organic Farmer, Pune</p>
@@ -145,7 +151,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 3 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-yellow-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-yellow-100 mr-4 flex items-center justify-center">
+                        <UserRound className="h-8 w-8 text-yellow-400" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Aniket Jadhav</h4>
                         <p className="text-sm text-gray-600">Rice Farmer, Sangli</p>
@@ -166,7 +174,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 4 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-purple-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-purple-100 mr-4 flex items-center justify-center">
+                        <UserRound className="h-8 w-8 text-purple-400" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Rakesh Kumar</h4>
                         <p className="text-sm text-gray-600">Vineyard Owner, Odisha</p>
