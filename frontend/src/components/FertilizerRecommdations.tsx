@@ -1,15 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FertilizerData } from "@/lib/data"
 import { FlaskConical } from "lucide-react"
 
-export function FertilizerRecommdation() {
+export function FertilizerRecommdation({data}: {data: any[]}) {
   return (
     <Card>
       <CardHeader>
         <CardTitle>Recommended Fertilizers</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {FertilizerData.map((f, i) => (
+        {data.map((f, i) => (
           <Card key={i} className="bg-muted/50">
             <CardContent className="p-4">
               <div className="flex justify-between items-center">
@@ -31,6 +30,22 @@ export function FertilizerRecommdation() {
             </CardContent>
           </Card>
         ))}
+      </CardContent>
+    </Card>
+  )
+}
+
+export function FertilizerRecommdationEmpty() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Recommended Fertilizers</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="flex flex-col items-center justify-center min-h-90">
+          <div className="text-lg font-medium text-gray-600">No data available</div>
+          <div className="text-sm text-gray-600">Please Fill the form to get recommendations</div>
+        </div>
       </CardContent>
     </Card>
   )

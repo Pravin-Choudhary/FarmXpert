@@ -20,19 +20,11 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
 import { useState } from "react"
 import { Eraser, SendHorizonal } from "lucide-react"
 import { DatePicker } from "./DatePicker";
-import axios from "axios"
+import { CropDetails } from "@/pages/Dashboard"
 
-interface CropDetails {
-    name: string;
-    location: string;
-    size: string;
-    soilType: string;
-    irrigationMethod: string;
-    plantingDate: Date;
-    usingFertilizer: string;
-}
 
-export default function CropForm({city}: {city: string}) {
+
+export default function CropForm({city, handleCropDetailsSubmit}: {city: string, handleCropDetailsSubmit: (e: any) => void}) {
     const [cropDetails, setCropDetails] = useState<CropDetails>({
         name: "",
         location: city ?? "",
@@ -58,11 +50,16 @@ export default function CropForm({city}: {city: string}) {
     ];
 
     const handleCropSubmit = async (cropDetails: CropDetails) => {
-      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/ai/crop`, cropDetails).then(res => {
-        console.log(res);
-      }).catch(err => {
-        console.log(err);
-      });
+      handleCropDetailsSubmit(cropDetails);
+      setCropDetails({
+        name: "",
+        location: "",
+        size: "",
+        soilType: "",
+        irrigationMethod: "",
+        plantingDate: new Date(),
+        usingFertilizer: "yes"
+      })
     }
       
 

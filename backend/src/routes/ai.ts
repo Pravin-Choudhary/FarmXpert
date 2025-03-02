@@ -6,7 +6,7 @@ import { CropSchema } from "../types";
 
 const AiRouter = Router();
 
-AiRouter.get('/crop' , async (req ,res) => {
+AiRouter.post('/crop' , async (req ,res) => {
     const parsedBody = CropSchema.safeParse(req.body);
     if(!parsedBody.success){
         res.status(400).json({error : "Invalid Request Body"});
@@ -41,7 +41,7 @@ AiRouter.get('/crop' , async (req ,res) => {
               }
             ]
 
-               Send at least 4-5 fertilizers. Each 'use' field should have a max of 10 words.
+               Send at least 7-8 fertilizers. Each 'use' field should have a max of 20 words.
         `;
 
         const prompt2 = `
