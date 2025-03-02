@@ -1,21 +1,19 @@
 import { Router } from "express";
 import axios from "axios";
 import { GoogleGenerativeAI } from '@google/generative-ai'
+import { CropSchema } from "../types";
 
 
 const AiRouter = Router();
 
 AiRouter.get('/crop' , async (req ,res) => {
+    const parsedBody = CropSchema.safeParse(req.body);
+    if(!parsedBody.success){
+        res.status(400).json({error : "Invalid Request Body"});
+        return;
+    }
     try {
-        const cropData = {
-            name: "Wheat",
-            location:"Pune",
-            size: "1 acre",
-            soilType: "Alluvial Soil (बनाली मिट्टी)",
-            irrigationMethod: "Flood",
-            plantingDate: new Date().toLocaleString(),
-            usingFertilizer: "yes"
-        };
+        const cropData = parsedBody.data;
     
         const obj = {
             name:"Pravin",
