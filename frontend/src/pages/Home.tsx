@@ -21,7 +21,7 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         <section className="w-full py-16 md:py-12 border-y border-gray-200">
           <div className="container mx-auto px-4 md:px-8 max-w-5xl text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-8 text-pretty tracking-wide">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-pretty tracking-wide">
               AI-Powered Farming Insights for Smarter Agriculture
             </h1>
             <p className="text-md text-gray-600 max-w-2xl mx-auto mb-8">
