@@ -1,1 +1,1 @@
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://github.com/OmLandge/FarmXpert/blob/main/FarmXpert%20demo%20video.mp4)
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)(https://www.youtube.com/watch?v=wLGrhL8V038))
