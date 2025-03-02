@@ -154,7 +154,7 @@ export default function ChatInterface() {
                 key={i}
                 avatar={chat.User.profileImage}
                 sender={`@${chat.User.name}`}
-                time={format(chat.createdAt, "PPP")}
+                time={format(chat.createdAt, "PPPp")}
                 isCurrentUser={isLoggedIn && chat.User.id == user?.id}
                 messages={[
                   chat.chat
