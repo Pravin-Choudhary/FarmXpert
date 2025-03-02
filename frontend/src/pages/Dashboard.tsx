@@ -4,7 +4,9 @@ import CropForm from "@/components/CropForm";
 import { FertilizerRecommdation } from "@/components/FertilizerRecommdations";
 import { RecommendedCrops } from "@/components/RecommendedCrops";
 import { Weather } from "@/components/Weather";
+import { Leaf, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
     const [city, setCity] = useState("Pune");
@@ -34,6 +36,7 @@ export default function Dashboard() {
       console.log(city);
   return (
     <div className="flex min-h-screen flex-col bg-background items-center">
+      <AppBar city={city} />
       <div className="container flex-1 gap-12 p-4 md:p-6 2xl:p-8">
         <div className="flex-1 space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
@@ -53,3 +56,20 @@ export default function Dashboard() {
     </div>
   )
 }
+
+function AppBar({city}: {city: string}) {
+  const navigate = useNavigate();
+  return (
+  <header className="w-full py-6 px-8 border-b border-gray-200">
+    <div className="container mx-auto flex justify-between items-center">
+      <div className="flex items-center cursor-pointer gap-2" onClick={() => navigate("/")}>
+        <Leaf className="h-6 w-6 text-green-600" />
+        <span className="text-xl font-medium">FarmXpert</span>
+      </div>
+      <div className="flex items-center justify-center gap-1 mr-4">
+        <MapPin className="h-4 w-4 text-muted-foreground" />
+        <span className="text-md text-muted-foreground">{city.toUpperCase()}</span>
+      </div>
+    </div>
+  </header>
+)}

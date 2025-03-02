@@ -5,3 +5,13 @@ export const ChatSchema = z.object({
     chat: z.string(),
     userid: z.number()
 });
+
+export const CropSchema = z.object({
+    name: z.string(),
+    location: z.string(),
+    size: z.string(),
+    soilType: z.string(),
+    irrigationMethod: z.string(),
+    plantingDate: z.string(),
+    usingFertilizer: z.string()
+});

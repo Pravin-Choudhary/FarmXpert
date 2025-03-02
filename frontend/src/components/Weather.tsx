@@ -3,7 +3,6 @@ import { MapPin } from "lucide-react"
 import { useState , useEffect } from "react"
 import axios from "axios"
 import { Cloud, CloudRain, Sun , CloudLightning ,CloudSnow } from "lucide-react"
-import { data } from "react-router-dom"
 
 
 interface WeatherData {
@@ -19,7 +18,7 @@ export function Weather({city}: {city: string}) {
   useEffect(() => {
       async function fetchWeather() {
          try {
-            const response = await axios.get(`http://localhost:3000/api/v1/weather/forecast/${city}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/weather/forecast/${city}`);
             setWeatherData(response.data.weather);
          } catch (error) {
           console.log('Error in Fetching Data :' ,error);

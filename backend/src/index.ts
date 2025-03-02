@@ -2,7 +2,6 @@ require('dotenv').config()
 import express from "express";
 import cors from "cors";
 import AiRouter from "./routes/ai";
-import CropRouter from "./routes/crop";
 import WeatherRouter from "./routes/weather";
 
 import { GoogleGenerativeAI } from '@google/generative-ai'
@@ -25,7 +24,6 @@ interface GoogleJWTPayload extends JwtPayload{
 app.use(cors());
 app.use(express.json());
 app.use("/api/v1/ai", AiRouter);
-app.use("/api/v1/crop", CropRouter);
 app.use("/api/v1/weather", WeatherRouter);
 app.use("/api/v1/community", CommunityRouter);
 
