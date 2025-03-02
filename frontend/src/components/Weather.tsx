@@ -1,8 +1,49 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { dayData } from "@/lib/data"
 import { MapPin } from "lucide-react"
+import { useState , useEffect } from "react"
+import axios from "axios"
+import { Cloud, CloudRain, Sun , CloudLightning ,CloudSnow } from "lucide-react"
+
+
+interface WeatherData {
+  temp: number;
+  humidity: number;
+  weather: string;
+  date: string;
+}
 
 export function Weather({city}: {city: string}) {
+  const [weatherData , setWeatherData] = useState<WeatherData[]>([]);
+ 
+  useEffect(() => {
+      async function fetchWeather() {
+         try {
+            const response = await axios.get(`http://localhost:3000/api/v1/weather/forecast/${city}`);
+            setWeatherData(response.data.weather);
+         } catch (error) {
+          console.log('Error in Fetching Data :' ,error);
+         }
+      }
+      fetchWeather();
+  },[city]);
+
+  function getWeatherIcon(condition: string) {
+    switch (condition.toLowerCase()) {
+      case "clear":
+        return <Sun className="h-6 w-6 text-yellow-500 m-2" />;
+      case "rainy":
+        return <CloudRain className="h-6 w-6 text-blue-500 m-2" />;
+      case "clouds":
+        return <Cloud className="h-6 w-6 text-gray-500 m-2" />;
+      case "snow":
+          return <CloudSnow className="h-6 w-6 text-gray-500 m-2" />;
+      case "thunderstorm":
+            return <CloudLightning className="h-6 w-6  to-blue-800 text-yellow-400 m-2" />;  
+      default:
+        return <Cloud className="h-6 w-6 text-gray-500 m-2" />;
+    }
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -11,12 +52,12 @@ export function Weather({city}: {city: string}) {
       </CardHeader>
       <CardContent>
         <div className="mb-6">
-          <div className="flex justify-between">
-            {dayData.map((hour, i) => (
+          <div className="flex justify-around">
+            {weatherData.map((day, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="text-sm font-medium">{hour.day}</div>
-                <hour.icon className="my-2 h-6 w-6 text-primary" />
-                <div className="text-sm font-bold">{hour.temp}°</div>
+                <div className="text-sm font-medium">{new Date(day.date).toUTCString().slice(0,3)}</div>
+                {getWeatherIcon(day.weather)}
+                <div className="text-sm font-bold">{Math.round(day.temp)}°</div>
               </div>
             ))}
           </div>

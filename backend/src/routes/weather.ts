@@ -8,6 +8,7 @@ const WeatherRouter = Router();
 WeatherRouter.get("/forecast/:city", async (req , res) => {
  
   const city =  req.params.city;
+  console.log(city);
   
   try {
      const response = await axios.get(`
@@ -16,26 +17,50 @@ WeatherRouter.get("/forecast/:city", async (req , res) => {
 
       const forecasts = response.data.list;
       if (forecasts.length === 0) {
-        return res.status(404).json({ error: "No forecast data available" });
+         res.status(404).json({ error: "No forecast data available" });
+         return;
     }
 
     const selectedForecasts = [forecasts[0]];
+    const firstDate = forecasts[0].dt_txt.slice(0,10);
 
-    const uniqueDates: string[] = [];  
+    console.log(firstDate);
+    
+    const uniqueDates: string[] = []; 
+    uniqueDates.push(firstDate)
+   
     for (let i = 0; i < forecasts.length; i++) {
-        const entry = forecasts[i];
-        const [date, time] = entry.dt_txt.split(" "); 
+        const  forecast = forecasts[i];
+        const [date, time] = forecast.dt_txt.split(" "); 
 
         if (time === "12:00:00" && !uniqueDates.includes(date)) {
             uniqueDates.push(date);
-            selectedForecasts.push(entry);
+            selectedForecasts.push(forecast);
         }
 
         if (selectedForecasts.length === 5) break; 
     }
+
+    const weather = [];
+
+      for (const forecast of selectedForecasts) {
+
+        weather.push(
+          {
+            temp : forecast.main.temp,
+            humidity : forecast.main.humidity,
+            weather : forecast.weather[0].main,
+            date : forecast.dt_txt
+          }
+        );
+
+      }
+
+      console.log(weather);
+
     res.json({
       city,
-      forecast: selectedForecasts,
+      weather,
   });
 
   } catch (error) {
