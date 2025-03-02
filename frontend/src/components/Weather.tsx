@@ -35,7 +35,7 @@ export function Weather({city}: {city: string}) {
       case "rainy":
         return <CloudRain className="h-6 w-6 text-blue-500 m-2" />;
       case "clouds":
-        return <Cloud className="h-6 w-6 text-gray-500 m-2" />;
+        return <Cloud className="h-6 w-6 text-blue-500 m-2" />;
       case "snow":
           return <CloudSnow className="h-6 w-6 text-gray-500 m-2" />;
       case "thunderstorm":

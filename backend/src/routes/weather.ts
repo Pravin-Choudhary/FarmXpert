@@ -5,11 +5,11 @@ const WeatherRouter = Router();
 
 WeatherRouter.get("/forecast/:city", async (req , res) => {
  
-  const city =  req.params.city;
-  console.log(city);
+  const {city} =  req.params;
+  
   
   try {
-     const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=4bab098e1ac811aed6c44bb3c7aeb953&units=metric`);
+     const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=4bab098e1ac811aed6c44bb3c7aeb953&units=metric`);
 
       const forecasts = response.data.list;
       if (forecasts.length === 0) {
@@ -51,8 +51,6 @@ WeatherRouter.get("/forecast/:city", async (req , res) => {
         );
 
       }
-
-      console.log(weather);
 
     res.json({
       city,

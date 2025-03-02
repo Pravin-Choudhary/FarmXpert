@@ -103,7 +103,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 1 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-green-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-green-100 mr-4">
+                        <img className="z-10 rounded-3xl" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SangramPatil.img"  />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Sangram Patil</h4>
                         <p className="text-sm text-gray-600">Wheat Farmer, Kolhapur</p>
@@ -124,7 +126,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 2 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-blue-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-blue-100 mr-4">
+                        <img className="z-10 rounded-3xl " src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="RahulKale.img" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Rahul Kale</h4>
                         <p className="text-sm text-gray-600">Organic Farmer, Pune</p>
@@ -145,7 +149,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 3 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-yellow-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-yellow-100 mr-4">
+                        <img className="z-10 rounded-3xl" src="https://images.unsplash.com/photo-1728577740843-5f29c7586afe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D" alt="AniketJadhav.img" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Aniket Jadhav</h4>
                         <p className="text-sm text-gray-600">Rice Farmer, Sangli</p>
@@ -166,7 +172,9 @@ export default function FeaturesAndTestimonials() {
                   {/* Testimonial 4 */}
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-purple-100 mr-4"></div>
+                      <div className="w-12 h-12 rounded-full bg-purple-100 mr-4">
+                        <img  className="z-10 rounded-3xl" src="https://images.unsplash.com/photo-1640951613773-54706e06851d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D" alt="rakesh.img" />
+                      </div>
                       <div>
                         <h4 className="font-semibold">Rakesh Kumar</h4>
                         <p className="text-sm text-gray-600">Vineyard Owner, Odisha</p>
