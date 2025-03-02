@@ -50,10 +50,7 @@ app.get('/geminiTest' , async (req , res) => {
 });
 
 
-app.listen(3000 , () => {
-    console.log("Server started on Port : 3000");
-    
-} );
+
 
 
 app.post("/api/v1/auth/google" , async (req , res) => {
@@ -100,6 +97,7 @@ app.post("/api/v1/auth/google" , async (req , res) => {
 });
 
 app.listen(3000 , () => {
-    console.log("Server started on Port : 3000"); 
-});
+    console.log("Server started on Port : 3000");
+    
+} );
 
