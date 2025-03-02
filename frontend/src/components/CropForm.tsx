@@ -77,7 +77,7 @@ export default function CropForm({city}: {city: string}) {
           <div className="grid lg:grid-cols-2 w-full items-center gap-4">
             <div className="col-span-full flex flex-col space-y-1.5">
               <Label htmlFor="name">Crop Name</Label>
-              <Input id="name" placeholder="Name of your crop" onChange={(e) => setCropDetails({...cropDetails, name: e.target.value})} />
+              <Input id="name" placeholder="Name of your crop" value={cropDetails.name} onChange={(e) => setCropDetails({...cropDetails, name: e.target.value})} />
             </div>
             <div className="col-span-full lg:col-span-1 flex flex-col space-y-1.5">
               <Label htmlFor="location">Farm Location</Label>
@@ -85,11 +85,11 @@ export default function CropForm({city}: {city: string}) {
             </div>
             <div className="col-span-full lg:col-span-1 flex flex-col space-y-1.5">
               <Label htmlFor="size">Farm Size</Label>
-              <Input id="size" placeholder="e.g. 1 acre or 40 gunthas" onChange={(e) => setCropDetails({...cropDetails, size: e.target.value})} />
+              <Input id="size" placeholder="e.g. 1 acre or 40 gunthas" value={cropDetails.size} onChange={(e) => setCropDetails({...cropDetails, size: e.target.value})} />
             </div>
             <div className="col-span-full lg:col-span-1 flex flex-col space-y-1.5">
               <Label htmlFor="soiltype">Soil Type</Label>
-              <Select onValueChange={(value) => setCropDetails({...cropDetails, soilType: value})}>
+              <Select onValueChange={(value) => setCropDetails({...cropDetails, soilType: value})} value={cropDetails.soilType}>
                 <SelectTrigger id="soiltype">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -100,7 +100,7 @@ export default function CropForm({city}: {city: string}) {
             </div>
             <div className="col-span-full lg:col-span-1 flex flex-col space-y-1.5">
               <Label htmlFor="irigationmethod">Irigation Method</Label>
-              <Select onValueChange={(value) => setCropDetails({...cropDetails, irrigationMethod: value})}>
+              <Select onValueChange={(value) => setCropDetails({...cropDetails, irrigationMethod: value})} value={cropDetails.irrigationMethod}>
                 <SelectTrigger id="irigationmethod">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -115,7 +115,7 @@ export default function CropForm({city}: {city: string}) {
             </div>
             <div className="col-span-full lg:col-span-1 flex flex-col space-y-1.5">
                 <Label htmlFor="fertilizer">Using Fertilizer</Label>
-                <RadioGroup>
+                <RadioGroup defaultValue="yes">
                     <div className="flex items-center space-x-2">
                         <RadioGroupItem value="yes" id="r1" onClick={() => setCropDetails({...cropDetails, usingFertilizer: "yes"})} />
                         <Label htmlFor="r1">Yes</Label>

@@ -32,36 +32,42 @@ app.get('/' , (req , res) => {
 app.post("/api/v1/auth/google" , async (req , res) => {
     const { token } = req.body;
     const decoded = decode(token) as GoogleJWTPayload;
-    const user = await prisma.user.findUnique({ 
-        where:{
-            email: decoded?.email
-        }
-     });
-    if (!user) {
-        const newUser = await prisma.user.create({
-            data: {
-                name: decoded?.given_name ?? "",
-                email: decoded?.email ?? "",
-                profileImage: decoded?.picture,
+    try {
+        const user = await prisma.user.findUnique({ 
+            where:{
+                email: decoded?.email
             }
         });
-        if(newUser) {
+        if (!user) {
+            const newUser = await prisma.user.create({
+                data: {
+                    name: decoded?.given_name ?? "",
+                    email: decoded?.email ?? "",
+                    profileImage: decoded?.picture,
+                }
+            });
+            if(newUser) {
+                res.status(200).json({
+                    id: newUser.id,
+                    name: newUser.name,
+                    profileImage: newUser.profileImage,
+                });
+            }
+            else{
+                res.status(500).json({
+                    error: "Error creating user"
+                });
+            }
+        } else {
             res.status(200).json({
-                id: newUser.id,
-                name: newUser.name,
-                profileImage: newUser.profileImage,
+                id: user.id,
+                name: user.name,
+                profileImage: user.profileImage,
             });
         }
-        else{
-            res.status(500).json({
-                error: "Error creating user"
-            });
-        }
-    } else {
-        res.status(200).json({
-            id: user.id,
-            name: user.name,
-            profileImage: user.profileImage,
+    }catch(err){
+        res.status(500).json({
+            message: "Error creating user"
         });
     }
 });
