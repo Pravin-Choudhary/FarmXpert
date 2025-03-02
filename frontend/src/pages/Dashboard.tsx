@@ -6,6 +6,7 @@ import { RecommendedCrops } from "@/components/RecommendedCrops";
 import { Weather } from "@/components/Weather";
 import { Leaf, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
     const [city, setCity] = useState("Pune");
@@ -57,10 +58,11 @@ export default function Dashboard() {
 }
 
 function AppBar({city}: {city: string}) {
+  const navigate = useNavigate();
   return (
   <header className="w-full py-6 px-8 border-b border-gray-200">
     <div className="container mx-auto flex justify-between items-center">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center cursor-pointer gap-2" onClick={() => navigate("/")}>
         <Leaf className="h-6 w-6 text-green-600" />
         <span className="text-xl font-medium">FarmXpert</span>
       </div>
