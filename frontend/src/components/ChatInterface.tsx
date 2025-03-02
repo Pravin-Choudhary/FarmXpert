@@ -95,7 +95,7 @@ export default function ChatInterface() {
     let interval = setInterval(() => {
       getChats();
       // TODO: Convert the interval to 1000 ms at presentation
-    }, 5000);
+    }, 50 * 1000);
     return () => clearInterval(interval);
   }, [channelName]);
 
