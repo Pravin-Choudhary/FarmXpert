@@ -50,6 +50,8 @@ WeatherRouter.get("/forecast/:city", async (req , res) => {
           }
         );
 
+        console.log("data",weather);
+        
       }
 
     res.json({
