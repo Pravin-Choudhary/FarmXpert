@@ -65,11 +65,11 @@ export function RecommendedCropsSkeleton() {
       </CardHeader>
       <CardContent>
         <ScrollArea className="w-full border-none whitespace-nowrap rounded-md border">
-        <div className="flex w-max space-x-4 p-4 pt-0">
-            {Array(3).fill(0).map((_, i) => (
+        <div className="flex w-full space-x-4 p-4 pt-0 justify-between">
+            {Array(5).fill(0).map((_, i) => (
             <figure key={i} className="shrink-0">
                 <figcaption className="pt-2 text-xs text-muted-foreground">
-                    <div className="flex flex-col justify-center items-center w-[150px]">
+                    <div className="flex flex-col justify-between items-center w-full">
                         <Skeleton className="h-4 w-[80px]" />
                         <Skeleton className="my-2 h-6 w-6 rounded-full" />
                         <Skeleton className="h-4 w-[90px]" />

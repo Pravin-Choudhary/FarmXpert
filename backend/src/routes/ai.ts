@@ -16,7 +16,7 @@ AiRouter.post('/crop' , async (req ,res) => {
         const cropData = parsedBody.data;
     
        
-         const genAI = new GoogleGenerativeAI("AIzaSyCn_dYYtV3cFNEu5aLQEy-4G6T-YchDB-M");
+         const genAI = new GoogleGenerativeAI(`${process.env.GEMINI_API_KEY}`);
             const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
             
             const prompt1 = `
@@ -140,7 +140,7 @@ AiRouter.get('/recommendation/crops/:city' ,async (req , res) => {
     condition : currentWeather
   }
 
-  const genAI = new GoogleGenerativeAI("AIzaSyCn_dYYtV3cFNEu5aLQEy-4G6T-YchDB-M");
+  const genAI = new GoogleGenerativeAI(`${process.env.GEMINI_API_KEY}`);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `
