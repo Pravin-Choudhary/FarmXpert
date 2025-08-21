@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import AiRouter from "./routes/ai";
 import WeatherRouter from "./routes/weather";
-
+import serverless from "serverless-http"; 
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
 import CommunityRouter from "./routes/community";
@@ -94,5 +94,5 @@ app.post("/api/v1/auth/google" , async (req , res) => {
     }
 });
 
-export default app;
+export const handler = serverless(app);
 
